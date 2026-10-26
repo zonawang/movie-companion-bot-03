@@ -6,6 +6,10 @@
 
 本版使用 **Google Maps Platform Places API (New) + ADK 自訂 FunctionTool** 實作 map grounding；沒有使用 Gemini 內建 Google Maps grounding，也不需要 Grounding Lite MCP 或改用 Vertex AI。
 
+## 實作文章
+
+- [從查分館到找附近：用 Google ADK 與 Google Maps，讓電影夥伴依位置找場次](medium.md)
+
 ## 可以這樣問
 
 - 直接傳送 LINE 的「位置」：找半徑 3 公里內最近 3 間影院，查今天尚未開演場次。
