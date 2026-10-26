@@ -38,7 +38,7 @@ This product uses the TMDB API but is not endorsed or certified by TMDB.
 
 個人票根由你提供片名、日期、同伴與心得，確認後才儲存。原始心得與電影資料分開處理，模型不會自行替你確認。對話內容與工具結果會送交 Gemini 處理；金鑰不會交給模型。
 
-目前使用本機 SQLite 保存票根。這個版本尚未部署為長期雲端服務。
+目前使用部署主機的 SQLite 保存票根。bot-03 已部署至 Google Compute Engine 持久磁碟，詳見 [部署說明](deployment.md)。
 
 ## 參考
 

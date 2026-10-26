@@ -62,3 +62,15 @@ Google Free Tier 提供符合資格地區的每月一台 e2-micro 使用時數�
 使用中的一般 VM 外部 IPv4 定價為 US$0.005／小時，持續 730 小時約 US$3.65／月，另計超額傳輸與 Maps／Gemini API 費用。[官方網路費率](https://cloud.google.com/vpc/network-pricing)
 
 若停止使用，應先備份票根，再停用服務、刪除不需要的 VM／磁碟／IP 並撤銷專用 Maps key。單純停止 VM 仍可能產生磁碟及保留 IP 費用。
+
+## 本次切換紀錄
+
+2026-10-26 15:42（Asia/Taipei）已將原有 Zona Movie 的 webhook 切到本主機，Use webhook 為啟用，LINE 官方驗證 200 OK。原有 1 筆票根的 ID、使用者、完整 payload 與建立時間以 SHA-256 核對一致。
+
+本機執行環境禁止對舊程序傳送停止訊號，因此改用 `deploy/maintenance.mjs` 暫時接收已簽章事件並寫入雲端 SQLite，等待舊事件完成後，以交易合併原有 tickets／drafts／jobs，保留切換期間的雲端事件，再啟動正常 worker。維護 receiver 已停止，Caddy 已回到正常服務。
+
+舊本機程序未被強制終止，但 LINE 不再指向它；新的票根以雲端資料庫為準。舊資料庫及本次私有遷移備份保留，沒有提交到 GitHub。
+
+真實 Maps 已查到京站威秀與光點台北並取得對應場次；誠品南西不在既有場次來源中，維持提供入口而不猜片單。真實 Gemini／ADK 已驗證 LINE 定位與文字地標工具選擇；台北車站有多個地圖候選時會要求補充或傳定位。
+
+75 項測試與 [GitHub CI](https://github.com/zonawang/movie-companion-bot-03/actions/runs/40286635062) 通過。HTTPS 健康檢查 200，未簽章 webhook 回傳 401，systemd 開機啟動與每日備份 timer 已啟用。

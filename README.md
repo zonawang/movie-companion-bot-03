@@ -2,6 +2,8 @@
 
 延續 [movie-companion-bot-02](https://github.com/zonawang/movie-companion-bot-02)，在既有 Google ADK Agent 加入位置查詢。傳送 LINE 定位，或輸入地址／地標，即可查附近影院，再沿用既有來源查詢實際電影與場次。
 
+**2026-10-26 已部署並切換 LINE：[Zona Movie（@796qcwyz）](https://line.me/R/ti/p/@796qcwyz)**。Maps key 已設定，原有 1 筆票根已完整搬移；服務不再依賴個人電腦或臨時 tunnel。主機與管理方式見 [部署說明](docs/deployment.md)。
+
 本版使用 **Google Maps Platform Places API (New) + ADK 自訂 FunctionTool** 實作 map grounding；沒有使用 Gemini 內建 Google Maps grounding，也不需要 Grounding Lite MCP 或改用 Vertex AI。
 
 ## 可以這樣問
@@ -59,7 +61,7 @@ npm run chat  # 終端機地標測試，不需要 LINE 設定
 npm start     # LINE webhook 本機服務
 ```
 
-本版不會自動切換 LINE webhook 或搬移票根。取代 bot-02 前，先備份原 SQLite、停止舊服務，將資料搬至新目錄並核對，再設定 HTTPS tunnel／webhook；不要讓兩個服務同時使用同一資料庫。見 [設定與切換](docs/line-setup.md)。
+本次已完成雲端切換；以下安裝流程不會自動更動其他 LINE 帳號。自行取代舊版本前，先備份原 SQLite、停止舊服務，將資料搬至新目錄並核對，再設定 HTTPS tunnel／webhook；不要讓兩個服務同時使用同一資料庫。見 [設定與切換](docs/line-setup.md)。
 
 `MOVIE_DATA_MODE=demo` 時，TMDB 電影工具為明確標示的虛構示範資料；地圖與指定影院場次仍使用各自真實來源。場次工具不依賴 TMDB key。
 
