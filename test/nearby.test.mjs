@@ -16,6 +16,9 @@ test('已登錄分館可用精確別名與縣市配對，不接受錯縣市或�
   assert.equal(matchMapCinema(place({ name: '誠品電影院', address: '台北市信義區菸廠路' })).id, 'eslite-songyan');
   assert.equal(matchMapCinema(place({ name: '誠品電影院', address: '台北市中山區' })), undefined);
 });
+test('真實 Maps 的光點台北地點已按官網地址核對，對應正確分館', () => {
+  assert.equal(matchMapCinema(place({ placeId: 'ChIJQaZzI2mpQjQRk9MTQahdDr0', name: '光點台北（台北之家）', address: '台北市中山區中山北路二段18號' })).id, 'atmovies-t02d20');
+});
 test('相同名稱多候選不擅選；可用人工驗證過的 Place ID 對應', () => {
   const registry = ['a', 'b'].map(id => ({ id, county: '台北市', name: '京站威秀影城', aliases: [] }));
   assert.equal(matchMapCinema(place(), registry, {}), undefined);

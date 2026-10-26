@@ -26,7 +26,7 @@ bot-02 已使用 `@google/adk` 2.3.0、`LlmAgent`、`InMemoryRunner` 與九個�
 
 ## 補充 Place ID 對應
 
-`src/maps-place-ids.json` 初始為 `{}`。當 Google 地圖與場次來源名稱不同時，可人工核對名稱、完整地址、官網及分館，加入：
+`src/maps-place-ids.json` 保存經人工核對的 Place ID。2026-10-26 已對照 [光點台北官網](https://www.spot.org.tw/) 的中山北路二段18號地址，加入該分館對應。當 Google 地圖與場次來源名稱不同時，可人工核對名稱、完整地址、官網及分館，加入：
 
 ```json
 {

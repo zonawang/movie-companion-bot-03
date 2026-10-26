@@ -80,7 +80,7 @@ smoke scripts 使用記憶體資料庫，不傳送 LINE 訊息、不寫入正式
 | --- | --- |
 | `src/maps.mjs` | Places Text Search／Nearby Search、座標驗證、距離與錯誤處理 |
 | `src/nearby.mjs` | 地點與分館配對、最多三館場次查詢、固定格式輸出 |
-| `src/maps-place-ids.json` | 人工核對後的 Place ID → 分館 ID，初始為空 |
+| `src/maps-place-ids.json` | 人工核對後的 Place ID → 分館 ID |
 | `src/agent.mjs` | ADK Agent、10 個 FunctionTool、位置隔離與期限 |
 | `src/line.mjs` / `src/app.mjs` | LINE 定位、簽章、去重、清除位置與長訊息拆分 |
 | `src/cinema.mjs` | 既有單館／多館場次及時間篩選 |
